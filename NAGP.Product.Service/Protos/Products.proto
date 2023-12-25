@@ -1,0 +1,45 @@
+syntax = "proto3";
+option csharp_namespace = "NAGP.Product.Service";
+package Products;
+
+import "Protos/google/api/annotations.proto";
+
+//*** Orders 
+service Products {
+	//**** Create order with product details, returns status for order
+	rpc CreateOrder (ProductOrderDetails) returns (ProductOrderResponse) {
+		option (google.api.http) = {
+			post: "/v1/products/orders"
+			body: "*"
+		};
+	}
+
+	//**** Update order with product details and return order response
+	rpc UpdateOrder (ProductOrderDetails) returns (ProductOrderResponse) {
+		option (google.api.http) = {
+			put: "/v1/products/orders/{OrderId}"
+			body: "*"
+		};
+	}
+}
+
+//**** Model for OrderDetails
+message ProductOrderDetails {
+	Product Product = 1;
+	int32 Quantity = 2;
+	int32 OrderId = 3;
+}
+
+//**** Model for Product details 
+message Product {
+	int32 Id = 1;
+	string Color = 2;
+	string Name = 3;
+	string Description = 4;
+}
+
+//**** Model for order response
+message ProductOrderResponse {
+	bool IsSuccess = 1;
+	string Message = 2;
+}

@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NAGP.Product.Service</name>
+    </assembly>
+    <members>
+        <member name="T:NAGP.Product.Service.Controllers.ProductController">
+            <summary>
+            Controller to handle requests for product's order
+            </summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Controllers.ProductController.#ctor(NAGP.Product.Service.Services.Interfaces.IProductOrderService)">
+            <summary>
+            Create instance for <see cref="T:NAGP.Product.Service.Controllers.ProductController"/>
+            </summary>
+            <param name="productOrderService"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NAGP.Product.Service.Controllers.ProductController.CreateOrder(NAGP.Product.Service.ProductOrderDetails,Grpc.Core.ServerCallContext)">
+            <summary>
+            Serve requests to create orders
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Controllers.ProductController.UpdateOrder(NAGP.Product.Service.ProductOrderDetails,Grpc.Core.ServerCallContext)">
+            <summary>
+            Serve requests to update orders
+            </summary>
+            <param name="request"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NAGP.Product.Service.Services.Interfaces.IProductOrderService">
+            <summary>
+            Contract to product order operations
+            </summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Services.Interfaces.IProductOrderService.CreateOrder(NAGP.Product.Service.ProductOrderDetails,System.Threading.CancellationToken)">
+            <summary>
+            Create order based on provided details
+            </summary>
+            <param name="orderDetails">Order details</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Services.Interfaces.IProductOrderService.UpdateOrder(System.Int32,NAGP.Product.Service.ProductOrderDetails,System.Threading.CancellationToken)">
+            <summary>
+            Update order 
+            </summary>
+            <param name="orderId"></param>
+            <param name="orderDetails"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NAGP.Product.Service.Services.ProductOrderService">
+            <summary>
+            Service for product order related operations
+            </summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Services.ProductOrderService.#ctor(Grpc.Net.ClientFactory.GrpcClientFactory,Microsoft.Extensions.Logging.ILogger{NAGP.Product.Service.Services.ProductOrderService})">
+            <summary>
+            Create instance for <see cref="T:NAGP.Product.Service.Services.ProductOrderService"/>
+            </summary>
+            <param name="grpcClientFactory"></param>
+            <param name="logger"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:NAGP.Product.Service.Services.ProductOrderService.CreateOrder(NAGP.Product.Service.ProductOrderDetails,System.Threading.CancellationToken)">
+            <summary>
+            Create order based on provided details
+            </summary>
+            <param name="orderDetails">Order details</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Services.ProductOrderService.UpdateOrder(System.Int32,NAGP.Product.Service.ProductOrderDetails,System.Threading.CancellationToken)">
+            <summary>
+            Update order 
+            </summary>
+            <param name="orderId"></param>
+            <param name="orderDetails"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NAGP.Product.Service.OrdersReflection">
+            <summary>Holder for reflection information generated from Protos/Orders.proto</summary>
+        </member>
+        <member name="P:NAGP.Product.Service.OrdersReflection.Descriptor">
+            <summary>File descriptor for Protos/Orders.proto</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.OrderDetails">
+             <summary>
+            **** Model for OrderDetails
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.OrderDetails.ProductFieldNumber">
+            <summary>Field number for the "Product" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.OrderDetails.QuantityFieldNumber">
+            <summary>Field number for the "Quantity" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.OrderDetails.IdFieldNumber">
+            <summary>Field number for the "Id" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.ProductDetails">
+             <summary>
+            **** Model for Product details 
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductDetails.IdFieldNumber">
+            <summary>Field number for the "Id" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductDetails.ColorFieldNumber">
+            <summary>Field number for the "Color" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductDetails.NameFieldNumber">
+            <summary>Field number for the "Name" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductDetails.DescriptionFieldNumber">
+            <summary>Field number for the "Description" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.OrderResponse">
+             <summary>
+            **** Model for order response
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.OrderResponse.IsSuccessFieldNumber">
+            <summary>Field number for the "IsSuccess" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.OrderResponse.MessageFieldNumber">
+            <summary>Field number for the "Message" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.Orders">
+             <summary>
+            *** Orders 
+             </summary>
+        </member>
+        <member name="P:NAGP.Product.Service.Orders.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.Orders.OrdersClient">
+            <summary>Client for Orders</summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.#ctor(Grpc.Core.ChannelBase)">
+            <summary>Creates a new client for Orders</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for Orders that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.CreateOrder(NAGP.Product.Service.OrderDetails,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+            **** Create order with product details, returns status for order
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.CreateOrder(NAGP.Product.Service.OrderDetails,Grpc.Core.CallOptions)">
+             <summary>
+            **** Create order with product details, returns status for order
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.CreateOrderAsync(NAGP.Product.Service.OrderDetails,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+            **** Create order with product details, returns status for order
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.CreateOrderAsync(NAGP.Product.Service.OrderDetails,Grpc.Core.CallOptions)">
+             <summary>
+            **** Create order with product details, returns status for order
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.UpdateOrder(NAGP.Product.Service.OrderDetails,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+            **** Update order with product details and return order response
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.UpdateOrder(NAGP.Product.Service.OrderDetails,Grpc.Core.CallOptions)">
+             <summary>
+            **** Update order with product details and return order response
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.UpdateOrderAsync(NAGP.Product.Service.OrderDetails,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+             <summary>
+            **** Update order with product details and return order response
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+             <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+             <param name="cancellationToken">An optional token for canceling the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.UpdateOrderAsync(NAGP.Product.Service.OrderDetails,Grpc.Core.CallOptions)">
+             <summary>
+            **** Update order with product details and return order response
+             </summary>
+             <param name="request">The request to send to the server.</param>
+             <param name="options">The options for the call.</param>
+             <returns>The call object.</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Orders.OrdersClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.ProductsReflection">
+            <summary>Holder for reflection information generated from Protos/Products.proto</summary>
+        </member>
+        <member name="P:NAGP.Product.Service.ProductsReflection.Descriptor">
+            <summary>File descriptor for Protos/Products.proto</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.ProductOrderDetails">
+             <summary>
+            **** Model for OrderDetails
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductOrderDetails.ProductFieldNumber">
+            <summary>Field number for the "Product" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductOrderDetails.QuantityFieldNumber">
+            <summary>Field number for the "Quantity" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductOrderDetails.OrderIdFieldNumber">
+            <summary>Field number for the "OrderId" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.Product">
+             <summary>
+            **** Model for Product details 
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.Product.IdFieldNumber">
+            <summary>Field number for the "Id" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.Product.ColorFieldNumber">
+            <summary>Field number for the "Color" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.Product.NameFieldNumber">
+            <summary>Field number for the "Name" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.Product.DescriptionFieldNumber">
+            <summary>Field number for the "Description" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.ProductOrderResponse">
+             <summary>
+            **** Model for order response
+             </summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductOrderResponse.IsSuccessFieldNumber">
+            <summary>Field number for the "IsSuccess" field.</summary>
+        </member>
+        <member name="F:NAGP.Product.Service.ProductOrderResponse.MessageFieldNumber">
+            <summary>Field number for the "Message" field.</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.Products">
+             <summary>
+            *** Orders 
+             </summary>
+        </member>
+        <member name="P:NAGP.Product.Service.Products.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:NAGP.Product.Service.Products.ProductsBase">
+            <summary>Base class for server-side implementations of Products</summary>
+        </member>
+        <member name="M:NAGP.Product.Service.Products.ProductsBase.CreateOrder(NAGP.Product.Service.ProductOrderDetails,Grpc.Core.ServerCallContext)">
+             <summary>
+            **** Create order with product details, returns status for order
+             </summary>
+             <param name="request">The request received from the client.</param>
+             <param name="context">The context of the server-side call handler being invoked.</param>
+             <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Products.ProductsBase.UpdateOrder(NAGP.Product.Service.ProductOrderDetails,Grpc.Core.ServerCallContext)">
+             <summary>
+            **** Update order with product details and return order response
+             </summary>
+             <param name="request">The request received from the client.</param>
+             <param name="context">The context of the server-side call handler being invoked.</param>
+             <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:NAGP.Product.Service.Products.BindService(NAGP.Product.Service.Products.ProductsBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:NAGP.Product.Service.Products.BindService(Grpc.Core.ServiceBinderBase,NAGP.Product.Service.Products.ProductsBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+    </members>
+</doc>

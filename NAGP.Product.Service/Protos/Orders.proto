@@ -1,0 +1,33 @@
+syntax = "proto3";
+option csharp_namespace = "NAGP.Product.Service";
+package Orders;
+
+//*** Orders 
+service Orders {
+	//**** Create order with product details, returns status for order
+	rpc CreateOrder (OrderDetails) returns (OrderResponse) ;
+
+	//**** Update order with product details and return order response
+	rpc UpdateOrder (OrderDetails) returns (OrderResponse);
+}
+
+//**** Model for OrderDetails
+message OrderDetails {
+	ProductDetails Product = 1;
+	int32 Quantity = 2;
+	int32 Id = 3;
+}
+
+//**** Model for Product details 
+message ProductDetails {
+	int32 Id = 1;
+	string Color = 2;
+	string Name = 3;
+	string Description = 4;
+}
+
+//**** Model for order response
+message OrderResponse {
+	bool IsSuccess = 1;
+	string Message = 2;
+}

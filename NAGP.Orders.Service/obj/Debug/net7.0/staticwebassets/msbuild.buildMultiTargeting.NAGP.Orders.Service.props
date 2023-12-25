@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\NAGP.Orders.Service.props" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "e1lngp6tAxwGaklA3ykVXpEyLgIEmaL1wxbQIiUeolw=",
+  "Source": "NAGP.Notification1.Service",
+  "BasePath": "_content/NAGP.Notification1.Service",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

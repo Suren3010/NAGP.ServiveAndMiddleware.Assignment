@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "NAGP.Product.Service";
+
+package Product;
+
+import "Protos/google/api/annotations.proto";
+
+service Orders {
+	rpc PlaceOrder (OrderDTO) returns (OrderResponse) {
+		option (google.api.http) = {
+			post: "v1/orders/"
+			body: "*"
+		}
+	}
+}
+
+//*** Model for order details
+message OrderDTO {
+	int32 ProductId = 1;
+}
+
+//*** Model for order response
+message OrderResponse {
+	bool IsSuccess =1;
+	string Message = 2;
+}
