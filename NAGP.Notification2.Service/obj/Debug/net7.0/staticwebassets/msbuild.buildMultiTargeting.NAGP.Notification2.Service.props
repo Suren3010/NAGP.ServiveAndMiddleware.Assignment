@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\NAGP.Notification2.Service.props" />
-</Project>
